@@ -1,37 +1,70 @@
 let screen = document.getElementById("screen");
 let button = document.querySelectorAll("button");
+let inputOne = null;
+let inputTwo = null;
+let operator = null;
+let isMultiple = false;
+function numberInsert(value) {
+    if (isMultiple == true) {
+        screenReset();
+        isMultipleNuller();
+        screen.innerHTML += value;
+    }
+    else{
+        screen.innerHTML += value;
+    }
+}
 function onClick(elem){
-    
-    switch (elem.target.value) {
-        case "1":
-            screen.innerHTML += "1";
+    let value = elem.target.value;
+    numberInsert(value);
+    switch (value) {
+        case "+":
+            operator = "+"
+            if (inputOne != null) {
+                operate();
+            }
+            else{
+                inputOne = screen.innerHTML;
+                screenReset();
+            }
             break;
-        case "2":
-            screen.innerHTML += "2";
+        case "-":
+            operator = "-"
+            if (inputOne != null) {
+                operate();
+            }
+            else{
+                inputOne = screen.innerHTML;
+                screenReset();
+            }
             break;
-        case "3":
-            screen.innerHTML += "3";
+        case "*":
+            operator = "*"
+            if (inputOne != null) {
+                operate();
+            }
+            else{
+                inputOne = screen.innerHTML;
+                screenReset();
+            }
             break;
-        case "4":
-            screen.innerHTML += "4";
+        case "/":
+            operator = "/"
+            if (inputOne != null) {
+                operate();
+            }
+            else{
+                inputOne = screen.innerHTML;
+                screenReset();
+            }
             break;
-        case "5":
-            screen.innerHTML += "5";
+        case "reset":
+            resetAll();
             break;
-        case "6":
-            screen.innerHTML += "6";
-            break;
-        case "7":
-            screen.innerHTML += "7";
-            break;
-        case "8":
-            screen.innerHTML += "8";
-            break;
-        case "9":
-            screen.innerHTML += "9";
-            break;
-        case "0":
-            screen.innerHTML += "0";
+        case "operate":
+            operate();
+            let isOperate = true;
+            resetAll(isOperate);
             break;
         default:
             break;
@@ -41,35 +74,61 @@ function onClick(elem){
 button.forEach((element) => {
     element.addEventListener("click", onClick);
 })
-
-
-
-
-function add(numberOne,numberTwo) {
-    return numberOne+numberTwo;
+function operate(){
+    inputTwo = screen.innerHTML;
+    if (operator == "+") {
+        screen.innerHTML = add();
+        inputOne = screen.innerHTML;
+        isMultiple = true;
+    } 
+    if (operator == "-") {
+        screen.innerHTML = subtract();
+        inputOne = screen.innerHTML;
+        isMultiple = true;
+    }
+    if (operator == "*"){
+        screen.innerHTML = multiply();
+        inputOne = screen.innerHTML;
+        isMultiple = true;
+    }
+    if (operator == "/"){
+        screen.innerHTML = divide();
+        inputOne = screen.innerHTML;
+        isMultiple = true;
+    }
+    else {
+        
+    }
+}
+function add() {
+    return parseInt(inputOne)+parseInt(inputTwo);
 }
 function subtract(numberOne,numberTwo){
-    return numberOne-numberTwo;
+    return parseInt(inputOne)-parseInt(inputTwo);
 }
 function multiply(numberOne,numberTwo) {
-    return numberOne*numberTwo;
+    return parseInt(inputOne)*parseInt(inputTwo);
 }
 function divide(numberOne,numberTwo){
-    return numberOne/numberTwo;
+    return parseInt(inputOne)/parseInt(inputTwo);
 }
-function operate(operator,numberOne,numberTwo) {
-    switch (operator) {
-        case "add":
-            add(numberOne,numberTwo);
-            break;
-        case "subtract":
-            subtract(numberOne,numberTwo);
-            break;
-        case "multiply":
-            multiply(numberOne,numberTwo);
-            break;
-        case "divide":
-            divide(numberOne,numberTwo);
-            break;
+function screenReset(){
+    screen.innerHTML = null;
+}
+function resetAll(isOperate){
+    if(isOperate === true){
+        inputOne = null;
+        inputTwo = null;
+        operator = null;
     }
+    else{
+        inputOne = null;
+        inputTwo = null;
+        screenReset();
+        isMultipleNuller();
+        operator = null;
+    }
+}
+function isMultipleNuller() {
+    isMultiple = false;
 }
