@@ -103,13 +103,13 @@ function operate(){
 function add() {
     return parseInt(inputOne)+parseInt(inputTwo);
 }
-function subtract(numberOne,numberTwo){
+function subtract(){
     return parseInt(inputOne)-parseInt(inputTwo);
 }
-function multiply(numberOne,numberTwo) {
+function multiply() {
     return parseInt(inputOne)*parseInt(inputTwo);
 }
-function divide(numberOne,numberTwo){
+function divide(){
     return parseInt(inputOne)/parseInt(inputTwo);
 }
 function screenReset(){
