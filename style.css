@@ -18,7 +18,7 @@ body{
     padding: 10px;
     border-radius: 15px;
 }
-.screen{
+#screen{
     background-color: antiquewhite;
     grid-column-start:1;
     grid-column-end: 5;
