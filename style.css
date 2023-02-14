@@ -20,11 +20,16 @@ body{
 }
 #screen{
     background-color: antiquewhite;
+    padding-left: 15px;
     grid-column-start:1;
     grid-column-end: 5;
     margin-bottom: 10px;
     border-radius: 15px;
     box-shadow: 10px;
+    color: darkorange;
+    font-size: 90px;
+    
+    
 }
 .button{
     border-radius: 15px;
@@ -35,4 +40,5 @@ body{
     font-size: 50px;
     color: darkorange;
     background-color: antiquewhite;
+    
 }

@@ -110,7 +110,9 @@ function multiply() {
     return parseInt(inputOne)*parseInt(inputTwo);
 }
 function divide(){
-    return parseInt(inputOne)/parseInt(inputTwo);
+    // return Math.round(parseInt(inputOne)/parseInt(inputTwo)); not working??
+    let roundThis = parseInt(inputOne)/parseInt(inputTwo);
+    return Math.floor(roundThis);
 }
 function screenReset(){
     screen.innerHTML = null;
