@@ -28,8 +28,6 @@ body{
     box-shadow: 10px;
     color: darkorange;
     font-size: 90px;
-    
-    
 }
 .button{
     border-radius: 15px;
@@ -40,5 +38,8 @@ body{
     font-size: 50px;
     color: darkorange;
     background-color: antiquewhite;
-    
+}
+.operator{
+    background-color: burlywood;
+    color: antiquewhite;
 }

@@ -1,10 +1,12 @@
 let screen = document.getElementById("screen");
+let isScreenEmpty = true;
 let button = document.querySelectorAll("button");
 let inputOne = null;
 let inputTwo = null;
 let operator = null;
 let isMultiple = false;
 function numberInsert(value) {
+    isScreenEmpty = false;
     if (isMultiple == true) {
         screenReset();
         isMultipleNuller();
@@ -14,11 +16,18 @@ function numberInsert(value) {
         screen.innerHTML += value;
     }
 }
+function inputERR(){
+    if (isScreenEmpty === true) {
+        alert("do not press operator before number");
+        resetAll();
+    }
+}
 function onClick(elem){
     let value = elem.target.value;
-    numberInsert(value);
+    
     switch (value) {
         case "+":
+            inputERR();
             operator = "+"
             if (inputOne != null) {
                 operate();
@@ -29,6 +38,7 @@ function onClick(elem){
             }
             break;
         case "-":
+            inputERR();
             operator = "-"
             if (inputOne != null) {
                 operate();
@@ -39,6 +49,7 @@ function onClick(elem){
             }
             break;
         case "*":
+            inputERR();
             operator = "*"
             if (inputOne != null) {
                 operate();
@@ -49,6 +60,7 @@ function onClick(elem){
             }
             break;
         case "/":
+            inputERR();
             operator = "/"
             if (inputOne != null) {
                 operate();
@@ -62,13 +74,14 @@ function onClick(elem){
             resetAll();
             break;
         case "operate":
+            inputERR();
             operate();
             let isOperate = true;
             resetAll(isOperate);
             break;
         default:
+            numberInsert(value);
             break;
-        
     }
 }
 button.forEach((element) => {
@@ -101,17 +114,17 @@ function operate(){
     }
 }
 function add() {
-    return parseInt(inputOne)+parseInt(inputTwo);
+    return parseInt(inputOne) + parseInt(inputTwo);
 }
 function subtract(){
-    return parseInt(inputOne)-parseInt(inputTwo);
+    return parseInt(inputOne) - parseInt(inputTwo);
 }
 function multiply() {
-    return parseInt(inputOne)*parseInt(inputTwo);
+    return parseInt(inputOne) * parseInt(inputTwo);
 }
 function divide(){
     // return Math.round(parseInt(inputOne)/parseInt(inputTwo)); not working??
-    let roundThis = parseInt(inputOne)/parseInt(inputTwo);
+    let roundThis = parseInt(inputOne) / parseInt(inputTwo);
     return Math.floor(roundThis);
 }
 function screenReset(){
@@ -122,6 +135,7 @@ function resetAll(isOperate){
         inputOne = null;
         inputTwo = null;
         operator = null;
+        isScreenEmpty = true;
     }
     else{
         inputOne = null;
@@ -129,6 +143,8 @@ function resetAll(isOperate){
         screenReset();
         isMultipleNuller();
         operator = null;
+        isScreenEmpty = true;
+        
     }
 }
 function isMultipleNuller() {
