@@ -5,6 +5,11 @@ let inputOne = null;
 let inputTwo = null;
 let operator = null;
 let isMultiple = false;
+
+button.forEach((element) => {
+    element.addEventListener("click", onClick);
+})
+
 function numberInsert(value) {
     isScreenEmpty = false;
     if (isMultiple == true) {
@@ -84,9 +89,6 @@ function onClick(elem){
             break;
     }
 }
-button.forEach((element) => {
-    element.addEventListener("click", onClick);
-})
 function operate(){
     inputTwo = screen.innerHTML;
     if (operator == "+") {
