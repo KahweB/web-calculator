@@ -33,7 +33,7 @@ function onClick(elem){
     switch (value) {
         case "+":
             inputERR();
-            operator = "+"
+            
             if (inputOne != null) {
                 operate();
             }
@@ -41,10 +41,11 @@ function onClick(elem){
                 inputOne = screen.innerHTML;
                 screenReset();
             }
+            operator = "+"
             break;
         case "-":
             inputERR();
-            operator = "-"
+            
             if (inputOne != null) {
                 operate();
             }
@@ -52,10 +53,11 @@ function onClick(elem){
                 inputOne = screen.innerHTML;
                 screenReset();
             }
+            operator = "-"
             break;
         case "*":
             inputERR();
-            operator = "*"
+            
             if (inputOne != null) {
                 operate();
             }
@@ -63,10 +65,11 @@ function onClick(elem){
                 inputOne = screen.innerHTML;
                 screenReset();
             }
+            operator = "*"
             break;
         case "/":
             inputERR();
-            operator = "/"
+            
             if (inputOne != null) {
                 operate();
             }
@@ -74,6 +77,7 @@ function onClick(elem){
                 inputOne = screen.innerHTML;
                 screenReset();
             }
+            operator = "/"
             break;
         case "reset":
             resetAll();
