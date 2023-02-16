@@ -60,6 +60,7 @@ body{
 #screen{
     background-color: rgb(69, 43, 9);
     padding-left: 15px;
+    padding-top: 8px;
     grid-column-start:1;
     grid-column-end: 5;
     margin-bottom: 10px;
